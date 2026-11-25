@@ -19,4 +19,4 @@ Appen innehåller inga konton, ingen reklam, inga länkar ut och inga personuppg
 
 ## Kortbild
 
-`public/kort.png` – 1200×900, spelmoment ur nivå 2: bilden av en tröja, två bokstäver i ordets platser och de återstående brickorna synliga. Ingen pålagd text, ingen startskärm.
+`public/kort.png` – 1200×900, spelmoment ur nivå 2: bilden av en morot, bokstäverna m och o i ordets platser och de återstående brickorna r, o, t synliga. Ingen pålagd text, ingen startskärm.
