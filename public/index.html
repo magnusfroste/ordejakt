@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ordejakt – sortera bokstäverna till ordet (åk 1–3)</title>
+<meta name="description" content="Ordejakt: lyssna på ordet, titta på bilden och tryck bokstäverna i rätt ordning. Fyra, fem och sex bokstäver i tre nivåer. Fel kostar inget – bokstäverna kan sorteras om. Gratis, ingen inloggning.">
+<meta name="theme-color" content="#f4f1e8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="app.webmanifest">
+<meta property="og:title" content="Ordejakt">
+<meta property="og:description" content="Sortera bokstäverna till ordet. För åk 1–3.">
+<meta property="og:image" content="kort.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<script src="https://www.skolappar.com/kotten.js" defer></script>
+</head>
+<body>
+
+<div id="startskarm">
+  <div class="sk-inner">
+    <img class="sk-ikon" src="icon-192.png" alt="" width="96" height="96">
+    <h1>Ordejakt</h1>
+    <p class="sk-tagline">Sortera bokstäverna till ordet</p>
+    <div class="sk-taggar"><span>Spel</span><span>Svenska</span><span>Åk 1–3</span></div>
+    <button class="sk-play" id="spela" aria-label="Spela Ordejakt">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      Spela
+    </button>
+    <p class="sk-fot">Gratis · ingen inloggning · skolappar.com</p>
+    <details class="sk-laroplan">
+      <summary>Läroplanskoppling (Lgr22)</summary>
+      <p><b>Svenska, åk 1–3, centralt innehåll:</b> ”Gemensam och enskild läsning. Sambandet mellan ljud och bokstav. Strategier för att avkoda, förstå och tolka ord, begrepp och texter.”</p>
+      <p>Barnet hör ordet, ser en bild och sätter bokstäverna i rätt ordning. Först fyra bokstäver, sedan fem och till sist sex. Bokstäverna är blandade och barnet kan prova hur många gånger som helst – ett fel tar aldrig slut på rundan. Stjärnan visas bara när ordet blir rätt på första försöket. Det tränar avkodning: att lyssna efter ljuden i ordet och koppla dem till bokstävernas ordning.</p>
+      <p class="sk-kalla">Orden är vanliga svenska vardagsord och språket följer Skolverkets kursplan i svenska för åk 1–3 (Lgr22).</p>
+    </details>
+  </div>
+</div>
+
+<main id="spel" hidden>
+  <header class="hud">
+    <div class="hud-vanster">
+      <span class="niva-chip" id="niva-chip">Nivå 1</span>
+    </div>
+    <div class="hud-mitten">
+      <span class="prickar" id="prickar" aria-label="ord klara"></span>
+    </div>
+    <div class="hud-hoger">
+      <span class="stjarnor" id="stjarnor" aria-label="stjärnor">★ 0</span>
+      <button class="ikon-knapp" id="ljud" aria-label="Ljud på eller av" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" id="ljudikon"></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="led">
+    <div class="emoji" id="emoji"><img id="bild" alt="" width="104" height="104"><span id="emoji-text" aria-hidden="true"></span></div>
+    <p class="status" id="status" aria-live="polite">Sortera bokstäverna till ordet.</p>
+  </section>
+
+  <section class="slots" id="slots" aria-label="bokstäverna i ordet"></section>
+
+  <section class="brickor" id="brickor" aria-label="blandade bokstäver"></section>
+
+  <footer class="kontroller">
+    <button class="knapp tyst" id="lyssna">Lyssna igen</button>
+    <button class="knapp tyst" id="rensa">Rensa</button>
+  </footer>
+</main>
+
+<div id="overlay" hidden>
+  <div class="ov-inner">
+    <div class="ov-bild" id="ov-bild">★</div>
+    <span class="ov-chip" id="ov-chip">SLUT</span>
+    <h2 id="ov-titel">Nivån klar</h2>
+    <p id="ov-text"></p>
+    <div class="ov-knappar">
+      <button class="knapp stor" id="ov-nasta">Nästa nivå</button>
+      <button class="knapp stor" id="ov-igen" hidden>Spela igen</button>
+    </div>
+  </div>
+</div>
+
+<script src="bild/bilder.js"></script>
+<script src="ljud/lines.js"></script>
+<script src="ljud/rosten.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

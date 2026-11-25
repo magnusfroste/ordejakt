@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="15" fill="#2f6b4f"/>
+  <rect x="8" y="8" width="48" height="48" rx="8" fill="#fffdf6"/>
+  <text x="32" y="41" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="32" fill="#2f6b4f">O</text>
+  <text x="55" y="49" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="15" fill="#e8a33d">★</text>
+</svg>

@@ -1,0 +1,116 @@
+/* Ordejakt – linne, skogsgrönt och stjärnguld. Inga externa resurser. */
+:root{
+  --papper:#f4f1e8;
+  --kort:#fffdf6;
+  --bläck:#1b2a24;
+  --dämpad:#4f5f57;
+  --accent:#2f6b4f;
+  --accent-mörk:#1f4a36;
+  --accent-ljus:#e2eee7;
+  --stjärna:#e8a33d;
+  --fel:#c0442f;
+  --linje:#d9d3c3;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none !important}
+html,body{margin:0;height:100%;overflow:hidden}
+body{
+  background:var(--papper);color:var(--bläck);
+  font:400 18px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  touch-action:manipulation;overscroll-behavior:none;-webkit-text-size-adjust:100%;user-select:none;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,p{margin:0}
+
+/* ---------- Startskärm ---------- */
+#startskarm{position:fixed;inset:0;z-index:40;display:grid;place-items:center;background:var(--papper);padding:16px;overflow:auto}
+.sk-inner{width:min(92vw,560px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:9px}
+.sk-ikon{width:clamp(68px,11vmin,104px);height:auto;border-radius:26%;box-shadow:0 8px 22px rgba(27,42,36,.16)}
+#startskarm h1{font-size:clamp(26px,4.8vmin,44px);font-weight:800;letter-spacing:-.03em}
+.sk-tagline{color:var(--dämpad);font-size:clamp(16px,2.3vmin,22px)}
+.sk-taggar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.sk-taggar span{font-size:clamp(13px,1.7vmin,16px);font-weight:600;color:var(--accent-mörk);background:var(--accent-ljus);padding:5px 12px;border-radius:999px}
+.sk-play{margin-top:6px;border:0;background:var(--accent);color:#fff;font-weight:700;font-size:clamp(19px,2.8vmin,25px);padding:15px 44px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 22px rgba(47,107,79,.32);min-height:56px}
+.sk-play:active{transform:translateY(1px)}
+.sk-play svg{width:1em;height:1em;fill:#fff}
+.sk-fot{color:var(--dämpad);opacity:.85;font-size:clamp(12px,1.6vmin,15px)}
+.sk-laroplan{margin-top:4px;text-align:left;width:100%;color:var(--dämpad);font-size:14px}
+.sk-laroplan summary{font-size:14px;cursor:pointer;list-style:none;text-align:center;opacity:.8}
+.sk-laroplan p{margin-top:8px;line-height:1.4}
+.sk-kalla{opacity:.8;font-size:13px}
+
+/* ---------- Spelet ---------- */
+#spel{display:flex;flex-direction:column;justify-content:space-between;height:100dvh;padding:clamp(8px,1.6vh,16px) clamp(8px,2vw,22px);gap:clamp(2px,.8vh,8px)}
+.hud{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;
+  flex:0 0 auto;min-height:44px}
+.niva-chip{display:inline-block;font-size:clamp(14px,1.9vmin,18px);font-weight:700;color:var(--accent-mörk);background:var(--accent-ljus);padding:7px 14px;border-radius:999px}
+.hud-mitten{display:flex;align-items:center;justify-content:center;flex:1 1 auto}
+.prickar{display:flex;gap:clamp(4px,1vmin,8px)}
+.prickar i{width:clamp(9px,1.5vmin,13px);height:clamp(9px,1.5vmin,13px);border-radius:50%;background:#e6e0d1;border:1px solid var(--linje)}
+.prickar i.klar{background:var(--accent);border-color:var(--accent)}
+.prickar i.nu{background:var(--stjärna);border-color:var(--stjärna)}
+.hud-hoger{display:flex;align-items:center;gap:8px}
+.stjarnor{font-size:clamp(18px,2.7vmin,25px);font-weight:800;color:var(--stjärna);min-width:2.4em;text-align:right;font-variant-numeric:tabular-nums}
+.stjarnor.popp{animation:popp .45s ease-out}
+@keyframes popp{0%{transform:scale(1)}40%{transform:scale(1.45)}100%{transform:scale(1)}}
+.ikon-knapp{width:clamp(44px,6.2vmin,52px);height:clamp(44px,6.2vmin,52px);border-radius:14px;border:1px solid var(--linje);background:var(--kort);display:grid;place-items:center;padding:0}
+.ikon-knapp svg{width:62%;height:62%;fill:none;stroke:var(--bläck);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ikon-knapp:active{background:var(--linje)}
+
+.led{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:0}
+.emoji{line-height:1;display:grid;place-items:center}
+.emoji img{width:clamp(64px,16vmin,140px);height:auto;display:block;filter:drop-shadow(0 5px 10px rgba(27,42,36,.14))}
+.emoji span{font-size:clamp(46px,11vmin,86px);line-height:1.05}
+.status{font-size:clamp(15px,2.2vmin,20px);font-weight:600;color:var(--dämpad);text-align:center;min-height:1.4em}
+.status.fel{color:var(--fel)}
+.status.ratt{color:var(--accent)}
+.status.slut{color:var(--accent-mörk)}
+
+.slots{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:clamp(5px,1.2vmin,10px);
+  padding:clamp(4px,1vh,8px) 0;min-height:clamp(62px,10vmin,92px)}
+.slott{
+  width:clamp(46px,9.6vmin,96px);height:clamp(56px,11.4vmin,104px);border-radius:14px;
+  border:2px dashed var(--linje);background:rgba(255,255,255,.55);
+  display:grid;place-items:center;font-weight:800;font-size:clamp(24px,4.6vmin,42px);
+  color:var(--bläck);padding:0;
+}
+.slott.fylld{border:2px solid var(--accent);background:var(--kort);box-shadow:0 4px 0 rgba(47,107,79,.22);cursor:pointer}
+.slots.skaka{animation:skaka .38s ease-in-out}
+@keyframes skaka{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.slots.klar .slott.fylld{border-color:var(--stjärna);box-shadow:0 4px 0 rgba(232,163,61,.3)}
+
+.brickor{flex:1 1 auto;display:flex;align-items:center;justify-content:center;align-content:center;
+  gap:clamp(6px,1.4vmin,12px);flex-wrap:wrap;min-height:0;padding:4px 0}
+.bricka{
+  width:clamp(50px,10.4vmin,106px);height:clamp(58px,12vmin,112px);border-radius:14px;
+  border:0;background:var(--accent);color:#fff;font-weight:800;font-size:clamp(26px,5vmin,46px);
+  display:grid;place-items:center;padding:0;box-shadow:0 5px 0 var(--accent-mörk);
+  transition:transform .08s ease;
+}
+.bricka:active{transform:translateY(3px);box-shadow:0 2px 0 var(--accent-mörk)}
+.bricka.anvand{visibility:hidden}
+.bricka-tom{width:clamp(50px,10.4vmin,106px);height:clamp(58px,12vmin,112px);visibility:hidden}
+
+.kontroller{flex:0 0 auto;display:flex;justify-content:center;gap:10px;padding-bottom:2px}
+.knapp{border-radius:999px;border:1px solid var(--linje);background:var(--kort);font-weight:700;
+  padding:10px 20px;min-height:44px;font-size:clamp(15px,2vmin,18px)}
+.knapp.tyst{color:var(--dämpad)}
+.knapp:active{background:var(--linje)}
+.knapp.stor{background:var(--accent);border-color:var(--accent);color:#fff;padding:14px 28px;min-height:52px;font-size:clamp(17px,2.4vmin,21px);box-shadow:0 5px 0 var(--accent-mörk)}
+
+/* ---------- Overlay ---------- */
+#overlay{position:fixed;inset:0;z-index:50;overflow:auto;background:rgba(27,42,36,.42);display:grid;place-items:center;padding:16px}
+.ov-inner{width:min(92vw,520px);background:var(--papper);border-radius:22px;padding:clamp(18px,3vmin,30px);
+  text-align:center;box-shadow:0 20px 60px rgba(27,42,36,.28);display:flex;flex-direction:column;align-items:center;gap:10px}
+.ov-bild{font-size:clamp(35px,6vmin,54px);color:var(--stjärna)}
+.ov-chip{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--accent-mörk);background:var(--accent-ljus);padding:5px 12px;border-radius:999px}
+.ov-inner h2{font-size:clamp(24px,3.8vmin,34px);font-weight:800;letter-spacing:-.02em}
+#ov-text{color:var(--dämpad);font-size:clamp(15px,2.1vmin,18px);line-height:1.45}
+.ov-knappar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+
+@media (max-height:620px){
+  .emoji{font-size:clamp(35px,9vmin,60px)}
+  .slott{height:clamp(44px,9vmin,62px)}
+  .bricka,.bricka-tom{height:clamp(46px,9vmin,64px)}
+  .sk-laroplan{font-size:13px}
+}
