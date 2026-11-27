@@ -248,13 +248,7 @@
   function sag(text) {
     if (!ljudPa || !text) return;
     if (spelaFil(text)) return;
-    try {
-      if (!("speechSynthesis" in window)) return;
-      var u = new SpeechSynthesisUtterance(text);
-      u.lang = "sv-SE"; u.rate = 0.95; u.volume = 0.9;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch (e) { }
+        console.warn('saknar mp3:', text);
   }
 
   function ton(frekvens, längd, typ) {
@@ -538,7 +532,7 @@
     document.getElementById("ljud").addEventListener("click", function () {
       ljudPa = !ljudPa;
       if (!ljudPa) {
-        try { window.speechSynthesis.cancel(); } catch (e) { }
+        try { if (window.__rostStopp) window.__rostStopp(); } catch (e) { }
         try { window.__rostStopp && window.__rostStopp(); } catch (e) { }
         spar("sound_off");
       }
